@@ -25,9 +25,9 @@ const labelsArr = props.labels.split(',')
 function groupedStrings() {
   // an array to store the groups of strings.
   const groups = []
-  for (let i = 0; i < this.labelsArr.length; i += 2) {
+  for (let i = 0; i < labelsArr.length; i += 2) {
     // Slice the input array to create a group of 2 strings.
-    const group = this.labelsArr.slice(i, i + 2)
+    const group = labelsArr.slice(i, i + 2)
     groups.push(group)
   }
   return groups

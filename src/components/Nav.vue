@@ -56,9 +56,8 @@ onMounted(() => {
    the left value of the nav item minus the marker's left value because when setting the style left pos to equal firstItemValues.left it adds to its original value.
    centerPos - markerWidth to positioning it in the center of nav item.
 * */
-function handleMouseover(n) {
-  const selectedNavItem = n.$el
-  moveMarkerOverElement(selectedNavItem)
+function handleMouseover(elem) {
+  moveMarkerOverElement(elem)
 }
 
 function moveMarkerOverElement(elem) {
