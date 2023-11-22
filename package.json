@@ -8,7 +8,8 @@
     "lint": "vue-cli-service lint",
     "linter": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier --write src/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "dependencies": {
     "vue": "^3.3.4",
