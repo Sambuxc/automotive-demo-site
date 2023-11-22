@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=./",
+    "build": "vite build --base=/automotive-demo-site/",
     "lint": "vue-cli-service lint",
     "linter": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier --write src/",
