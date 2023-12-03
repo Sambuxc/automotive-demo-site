@@ -13,8 +13,7 @@
       </div>
 
       <RouterLink to="/contact" class="btn-blue md:hidden">Contact</RouterLink>
-      <RouterLink to="mailto:samwbru@gmail.com" class="order-1 hidden btn-blue md:flex lg:order-2"
-        >Email</RouterLink
+      <RouterLink to="mailto:samwbru@gmail.com" class="order-1 btn-blue hidden md:flex lg:order-2">Email</RouterLink
       >
       <RouterLink to="/call" class="order-2 hidden btn-blue md:flex lg:order-1">Call</RouterLink>
 

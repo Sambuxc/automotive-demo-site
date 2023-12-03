@@ -53,7 +53,7 @@ footer {
   width: 100%;
   position: relative;
   z-index: 999;
-  
+
   .footer__first {
     @include flex-base;
     flex-direction: column;
@@ -66,17 +66,13 @@ footer {
     @media (min-width: 768px) {
       padding: 50px 30px;
     }
-    
+
     .row-wrapper {
-      @include flex-base; 
+      @include flex-base;
     }
 
     a:first-child {
       margin-right: 10px;
-    }
-
-    .btn-blue {
-      display: flex;
     }
   }
 
@@ -104,7 +100,7 @@ footer {
       @media (min-width: 1024px) {
         justify-content: center;
       }
-      
+
       p {
         width: 50%;
         margin-bottom: 20px;
@@ -117,7 +113,7 @@ footer {
       p:last-child {
         width: fit-content;
       }
-      
+
       p, a {
         font-size: 12px;
         color: $text-white;
@@ -136,7 +132,7 @@ footer {
     @media (min-width: 1024px) {
       width: 30%;
     }
-    
+
     li {
       @include flex-base;
       position: relative;
@@ -154,7 +150,7 @@ footer {
         height: 8px;
       }
     }
-    
+
     li:last-child {
       margin-bottom: 0;
     }
