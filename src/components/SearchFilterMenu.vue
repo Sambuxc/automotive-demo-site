@@ -1,8 +1,42 @@
-<script setup>
+<script>
+import { reactive } from 'vue';
 import SearchFilterItem from './SearchFilterItem.vue';
 import IconFilter from "./icons/IconFilter.vue";
 
-const selections = []
+
+export default {
+  name: 'SearchFilterMenu',
+
+  setup() {
+    const state = reactive({
+      selections: []
+    })
+    return {
+      state
+    }
+  },
+
+  components: {
+    SearchFilterItem,
+    IconFilter
+  },
+
+  methods: {
+    setSelection(selection, canAdd) {
+      const selections = this.state.selections
+
+      // Store filter selection
+      if( canAdd ) {
+        // add item if not stored already
+        selections.push(selection)
+      } else {
+        selections.splice(selections.indexOf(selection), 1)
+      }
+
+      console.log(selections)
+    }
+  }
+}
 </script>
 
 <template>
@@ -16,7 +50,7 @@ const selections = []
     <div class="search-filter-menu__body">
       <h2>Brand</h2>
 
-      <search-filter-item title="Make"></search-filter-item>
+      <search-filter-item title="Make" @custom-change="setSelection"></search-filter-item>
       <search-filter-item title="Model" disabled/>
 
       <h2>Finance</h2>

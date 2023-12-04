@@ -6,6 +6,10 @@ import FiltersItem from './SearchFilterItem__FiltersItem.vue'
 export default {
   name: 'SearchFilterItem',
 
+  props: {
+    title: String
+  },
+
   setup() {
     const state = reactive({
       selections: []
@@ -16,9 +20,6 @@ export default {
     }
   },
 
-  props: {
-    title: String
-  },
 
   components: {
     ButtonControlSwitch,
@@ -27,28 +28,12 @@ export default {
 
   methods: {
     handleFilterItemClick (event, canAdd) {
-      const elem = event.target
-      const selection = elem.innerText
-      const selections = this.state.selections
-
-      // update filter item view
-      if (!elem.classList.contains("selected")) {
-          elem.classList.add("selected")
-        } else {
-          elem.classList.remove("selected")
-        }
-
-      // Store filter selection
-      if( canAdd ) {
-        // add item if not stored already
-        selections.push(selection)
-      } else {
-        selections.splice(selections.indexOf(selection), 1)
-      }
-
-      console.log(selections)
+      const selection = event.target.innerText
+      this.$emit('custom-change', selection, canAdd)
     }
-  }
+  },
+
+
 }
 </script>
 

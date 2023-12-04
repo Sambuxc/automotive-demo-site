@@ -25,6 +25,14 @@ export default {
   methods: {
     handleClick(e) {
       this.isSelected = !this.isSelected
+      const elem = this.$el
+
+      if (!elem.classList.contains('selected')) {
+        elem.classList.add('selected')
+      } else {
+        elem.classList.remove('selected')
+      }
+
       // Parent callback
       this.handleClickFn(e, this.isSelected)
     }
@@ -33,7 +41,7 @@ export default {
 </script>
 
 <template>
-  <div class="search-filters__item" @click="handleClick">
+  <div class="search-filters__item" @click="handleClick($event)">
     <p class="search-filters__item--title">{{ filterItemName }}</p>
     <ButtonControlSwitch />
   </div>
