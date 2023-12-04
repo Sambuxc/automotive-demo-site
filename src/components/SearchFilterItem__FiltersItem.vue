@@ -1,15 +1,32 @@
-<script setup>
+<script>
+import { ref } from 'vue'
 import ButtonControlSwitch from './ButtonControlSwitch.vue'
 
-const props = defineProps({
-  filterItemName: String,
-  isSelected: Boolean,
-  handleClickFn: Function
-})
+export default {
+  name: 'FiltersItem',
+  setup() {
+    const isSelected = ref(false)
+
+    return {
+      isSelected
+    }
+  },
+  props: {
+    filterItemName: String,
+    handleClickFn: Function
+  },
+  methods: {
+    handleClick(e) {
+      this.isSelected = !this.isSelected
+      // Parent callback
+      this.handleClickFn(e, this.isSelected)
+    }
+  }
+}
 </script>
 
 <template>
-  <div class="search-filters__item" data-selected="{{ isSelected }}" @click="handleClickFn">
+  <div class="search-filters__item" @click="handleClick">
     <p class="search-filters__item--title">{{ filterItemName }}</p>
     <ButtonControlSwitch />
   </div>
@@ -46,7 +63,8 @@ const props = defineProps({
   }
 }
 
-.icon-plus, .control-switch {
+.icon-plus,
+.control-switch {
   pointer-events: none;
 }
 </style>

@@ -1,31 +1,35 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { reactive } from 'vue'
 import ButtonControlSwitch from './ButtonControlSwitch.vue'
 import FiltersItem from './SearchFilterItem__FiltersItem.vue'
 
 const props = defineProps({title: String})
 
-const selections = ref([])
+const state = reactive({
+  selections: []
+})
 
 
-const handleFilterItemClick = (event) => {
+const handleFilterItemClick = (event, canAdd) => {
   const elem = event.target
   const selection = elem.innerText
 
   // update filter item view
   if (!elem.classList.contains("selected")) {
-      elem.classList.add("selected");
+      elem.classList.add("selected")
     } else {
-      elem.classList.remove("selected");
+      elem.classList.remove("selected")
     }
 
   // Store filter selection
-  if( !selections.value.includes(selection) ) {
+  if( canAdd ) {
     // add item if not stored already
-    selections.value.push(selection)
+    state.selections.push(selection)
+  } else {
+    state.selections.splice(state.selections.indexOf(selection), 1)
   }
 
-  console.log(selections.value)
+  console.log(state.selections)
 }
 </script>
 
