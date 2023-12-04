@@ -1,11 +1,15 @@
 <script setup>
-import ButtonControlSwitch from "./ButtonControlSwitch.vue";
+import ButtonControlSwitch from './ButtonControlSwitch.vue'
 
-defineProps(["filterItemName"]);
+const props = defineProps({
+  filterItemName: String,
+  isSelected: Boolean,
+  handleClickFn: Function
+})
 </script>
 
 <template>
-  <div class="search-filters__item">
+  <div class="search-filters__item" data-selected="{{ isSelected }}" @click="handleClickFn">
     <p class="search-filters__item--title">{{ filterItemName }}</p>
     <ButtonControlSwitch />
   </div>
@@ -29,6 +33,7 @@ defineProps(["filterItemName"]);
     font-style: normal;
     font-weight: 400;
     line-height: 21px; /* 150% */
+    pointer-events: none;
   }
 }
 
@@ -39,5 +44,9 @@ defineProps(["filterItemName"]);
   svg path {
     stroke: white;
   }
+}
+
+.icon-plus, .control-switch {
+  pointer-events: none;
 }
 </style>

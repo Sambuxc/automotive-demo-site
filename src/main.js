@@ -51,13 +51,3 @@ document.querySelectorAll(".search-filter-item__header").forEach((headerFilterIt
     }
   })
 })
-
-document.querySelectorAll(".search-filters__item").forEach((filterItem) => {
-  filterItem.addEventListener("click", function () {
-    if (!filterItem.classList.contains("selected")) {
-      filterItem.classList.add("selected");
-    } else {
-      filterItem.classList.remove("selected");
-    }
-  });
-});

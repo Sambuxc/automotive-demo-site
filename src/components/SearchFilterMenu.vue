@@ -1,6 +1,8 @@
 <script setup>
+import SearchFilterItem from './SearchFilterItem.vue';
 import IconFilter from "./icons/IconFilter.vue";
-import SearchFilterItem from "./SearchFilterItem.vue";
+
+const selections = []
 </script>
 
 <template>
@@ -14,18 +16,18 @@ import SearchFilterItem from "./SearchFilterItem.vue";
     <div class="search-filter-menu__body">
       <h2>Brand</h2>
 
-      <SearchFilterItem title="Make"/>
-      <SearchFilterItem title="Model" disabled/>
+      <search-filter-item title="Make"></search-filter-item>
+      <search-filter-item title="Model" disabled/>
 
       <h2>Finance</h2>
-      <SearchFilterItem title="Deposit"/>
-      <SearchFilterItem title="Mileage"/>
-      <SearchFilterItem title="Period"/>
-      <SearchFilterItem title="Budget"/>
+      <search-filter-item title="Deposit"/>
+      <search-filter-item title="Mileage"/>
+      <search-filter-item title="Period"/>
+      <search-filter-item title="Budget"/>
 
       <h2>Budget</h2>
-      <SearchFilterItem title="Min. Price" disabled/>
-      <SearchFilterItem title="Max. Price" disabled/>
+      <search-filter-item title="Min. Price" disabled/>
+      <search-filter-item title="Max. Price" disabled/>
 
     </div>
 

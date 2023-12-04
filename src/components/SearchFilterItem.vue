@@ -1,8 +1,32 @@
 <script setup>
+import { ref, computed } from 'vue'
 import ButtonControlSwitch from './ButtonControlSwitch.vue'
 import FiltersItem from './SearchFilterItem__FiltersItem.vue'
 
-defineProps(['title'])
+const props = defineProps({title: String})
+
+const selections = ref([])
+
+
+const handleFilterItemClick = (event) => {
+  const elem = event.target
+  const selection = elem.innerText
+
+  // update filter item view
+  if (!elem.classList.contains("selected")) {
+      elem.classList.add("selected");
+    } else {
+      elem.classList.remove("selected");
+    }
+
+  // Store filter selection
+  if( !selections.value.includes(selection) ) {
+    // add item if not stored already
+    selections.value.push(selection)
+  }
+
+  console.log(selections.value)
+}
 </script>
 
 <template>
@@ -10,40 +34,40 @@ defineProps(['title'])
     <div class="search-filter-item__header">
       <h3>{{ title }}</h3>
 
-      <ButtonControlSwitch />
+      <button-control-switch></button-control-switch>
     </div>
 
     <div class="search-filter-item__filters">
-      <FiltersItem filter-item-name="Abarth" />
-      <FiltersItem filter-item-name="Alfa Romeo" />
-      <FiltersItem filter-item-name="Audi" />
-      <FiltersItem filter-item-name="BMW" />
-      <FiltersItem filter-item-name="Citroën" />
-      <FiltersItem filter-item-name="BS" />
-      <FiltersItem filter-item-name="Abarth" />
-      <FiltersItem filter-item-name="Alfa Romeo" />
-      <FiltersItem filter-item-name="Audi" />
-      <FiltersItem filter-item-name="BMW" />
-      <FiltersItem filter-item-name="Citroën" />
-      <FiltersItem filter-item-name="BS" />
-      <FiltersItem filter-item-name="Abarth" />
-      <FiltersItem filter-item-name="Alfa Romeo" />
-      <FiltersItem filter-item-name="Audi" />
-      <FiltersItem filter-item-name="BMW" />
-      <FiltersItem filter-item-name="Citroën" />
-      <FiltersItem filter-item-name="BS" />
-      <FiltersItem filter-item-name="Abarth" />
-      <FiltersItem filter-item-name="Alfa Romeo" />
-      <FiltersItem filter-item-name="Audi" />
-      <FiltersItem filter-item-name="BMW" />
-      <FiltersItem filter-item-name="Citroën" />
-      <FiltersItem filter-item-name="BS" />
-      <FiltersItem filter-item-name="Abarth" />
-      <FiltersItem filter-item-name="Alfa Romeo" />
-      <FiltersItem filter-item-name="Audi" />
-      <FiltersItem filter-item-name="BMW" />
-      <FiltersItem filter-item-name="Citroën" />
-      <FiltersItem filter-item-name="BS" />
+      <filters-item filter-item-name="Abarth" :handleClickFn="handleFilterItemClick"></filters-item>
+      <filters-item filter-item-name="Alfa Romeo" :handleClickFn="handleFilterItemClick"></filters-item>
+      <filters-item filter-item-name="Audi" :handleClickFn="handleFilterItemClick"></filters-item>
+      <filters-item filter-item-name="BMW" :handleClickFn="handleFilterItemClick"></filters-item>
+      <filters-item filter-item-name="Citroën" :handleClickFn="handleFilterItemClick"></filters-item>
+      <filters-item filter-item-name="BS" />
+      <filters-item filter-item-name="Abarth" />
+      <filters-item filter-item-name="Alfa Romeo" />
+      <filters-item filter-item-name="Audi" />
+      <filters-item filter-item-name="BMW" />
+      <filters-item filter-item-name="Citroën" />
+      <filters-item filter-item-name="BS" />
+      <filters-item filter-item-name="Abarth" />
+      <filters-item filter-item-name="Alfa Romeo" />
+      <filters-item filter-item-name="Audi" />
+      <filters-item filter-item-name="BMW" />
+      <filters-item filter-item-name="Citroën" />
+      <filters-item filter-item-name="BS" />
+      <filters-item filter-item-name="Abarth" />
+      <filters-item filter-item-name="Alfa Romeo" />
+      <filters-item filter-item-name="Audi" />
+      <filters-item filter-item-name="BMW" />
+      <filters-item filter-item-name="Citroën" />
+      <filters-item filter-item-name="BS" />
+      <filters-item filter-item-name="Abarth" />
+      <filters-item filter-item-name="Alfa Romeo" />
+      <filters-item filter-item-name="Audi" />
+      <filters-item filter-item-name="BMW" />
+      <filters-item filter-item-name="Citroën" />
+      <filters-item filter-item-name="BS" />
     </div>
   </div>
 </template>

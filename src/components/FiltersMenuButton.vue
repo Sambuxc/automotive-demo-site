@@ -40,7 +40,7 @@ import IconFilter from "./icons/IconFilter.vue";
     border-radius: 16px;
     border: $framework-borders;
     background: $brand-primary;
-    
+
     p {
       color: $text-white;
     }
