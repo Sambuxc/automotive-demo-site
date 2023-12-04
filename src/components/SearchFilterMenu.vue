@@ -40,7 +40,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
 
 <style lang="scss">
 .search-filter-menu {
-  overflow: hidden;
+  overflow-y: scroll;
   position: absolute;
   top: $header-height;
   width: 100%;
@@ -126,7 +126,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
-        text-wrap: nowrap;
+        white-space: nowrap;
       }
     }
   }

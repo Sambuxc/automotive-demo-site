@@ -20,8 +20,10 @@ document
     elem.addEventListener("click", function () {
       if (!searchFilterMenu.classList.contains("open")) {
         searchFilterMenu.classList.add("open");
+        document.body.style.overflow = "hidden" // prevent body scroll whilst menu open
       } else {
         searchFilterMenu.classList.remove("open");
+        document.body.style.overflow = ""
       }
     })
   })
