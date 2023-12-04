@@ -46,22 +46,6 @@ function getSelectItems() {
   }
 }
 
-ul.controls-menu__buttons::before {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, $framework-borders 100%);
-  z-index: -1;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-
 ul.controls-menu__buttons {
   @include flex-base;
   justify-content: space-evenly;
@@ -92,6 +76,7 @@ ul.controls-menu__buttons {
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
+    border-bottom: 3px solid $grey;
 
     @media (min-width: 768px) {
       @include flex-base;
@@ -113,6 +98,7 @@ ul.controls-menu__buttons {
     @media (min-width: 768px) {
       border-color: $framework-borders;
       color: $text-grey;
+      cursor: default;
     }
   }
   li.active {
