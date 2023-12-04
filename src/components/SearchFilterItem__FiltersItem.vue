@@ -4,6 +4,7 @@ import ButtonControlSwitch from './ButtonControlSwitch.vue'
 
 export default {
   name: 'FiltersItem',
+
   setup() {
     const isSelected = ref(false)
 
@@ -11,10 +12,16 @@ export default {
       isSelected
     }
   },
+
+  components: {
+    ButtonControlSwitch
+  },
+
   props: {
     filterItemName: String,
     handleClickFn: Function
   },
+
   methods: {
     handleClick(e) {
       this.isSelected = !this.isSelected

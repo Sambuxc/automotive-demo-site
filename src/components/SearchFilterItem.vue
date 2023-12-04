@@ -1,35 +1,54 @@
-<script setup>
+<script>
 import { reactive } from 'vue'
 import ButtonControlSwitch from './ButtonControlSwitch.vue'
 import FiltersItem from './SearchFilterItem__FiltersItem.vue'
 
-const props = defineProps({title: String})
+export default {
+  name: 'SearchFilterItem',
 
-const state = reactive({
-  selections: []
-})
+  setup() {
+    const state = reactive({
+      selections: []
+    })
 
-
-const handleFilterItemClick = (event, canAdd) => {
-  const elem = event.target
-  const selection = elem.innerText
-
-  // update filter item view
-  if (!elem.classList.contains("selected")) {
-      elem.classList.add("selected")
-    } else {
-      elem.classList.remove("selected")
+    return {
+      state
     }
+  },
 
-  // Store filter selection
-  if( canAdd ) {
-    // add item if not stored already
-    state.selections.push(selection)
-  } else {
-    state.selections.splice(state.selections.indexOf(selection), 1)
+  props: {
+    title: String
+  },
+
+  components: {
+    ButtonControlSwitch,
+    FiltersItem
+  },
+
+  methods: {
+    handleFilterItemClick (event, canAdd) {
+      const elem = event.target
+      const selection = elem.innerText
+      const selections = this.state.selections
+
+      // update filter item view
+      if (!elem.classList.contains("selected")) {
+          elem.classList.add("selected")
+        } else {
+          elem.classList.remove("selected")
+        }
+
+      // Store filter selection
+      if( canAdd ) {
+        // add item if not stored already
+        selections.push(selection)
+      } else {
+        selections.splice(selections.indexOf(selection), 1)
+      }
+
+      console.log(selections)
+    }
   }
-
-  console.log(state.selections)
 }
 </script>
 
