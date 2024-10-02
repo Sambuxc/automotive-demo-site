@@ -1,5 +1,5 @@
 <script setup>
-import IconDown from "./icons/IconDown.vue";
+import IconDown from './icons/IconDown.vue'
 
 const props = defineProps({
   items: {
@@ -7,7 +7,6 @@ const props = defineProps({
     required: true
   }
 })
-
 </script>
 
 <template>
@@ -36,7 +35,6 @@ const props = defineProps({
     white-space: nowrap;
     border-radius: 16px;
     background: $framework-light;
-
   }
 
   select {

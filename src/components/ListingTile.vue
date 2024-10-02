@@ -26,7 +26,9 @@
         </div>
         <div class="listings__tile--details__spec--price">
           <p class="monthly-price">
-            <span><strong>£{{ monthly_price }}</strong></span>
+            <span
+              ><strong>£{{ monthly_price }}</strong></span
+            >
             <span class="unit">/mo (PCP)</span>
           </p>
           <p v-if="discount_price" class="total-price">
@@ -45,13 +47,13 @@
 
 <script setup>
 // stores
-import { useStarredListingsStore } from '../store/stars';
+import { useStarredListingsStore } from '../store/stars'
 
 // components
 import IconStar from './icons/IconStar.vue'
 import ListingLabels from '../components/ListingLabels.vue'
 
-const store = useStarredListingsStore();
+const store = useStarredListingsStore()
 
 const props = defineProps([
   'id',
@@ -149,7 +151,7 @@ const handleStarClick = () => {
     align-items: flex-end;
     padding-top: 6px;
 
-    >div {
+    > div {
       width: 50%;
       line-height: 18px;
 

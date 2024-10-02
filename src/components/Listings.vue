@@ -12,7 +12,7 @@ function getSelectItems() {
 
 // Function to get image URL
 function getImageUrl(imageName) {
-  return new URL(`../assets/${imageName}`, import.meta.url).href;
+  return new URL(`../assets/${imageName}`, import.meta.url).href
 }
 </script>
 

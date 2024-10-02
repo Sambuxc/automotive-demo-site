@@ -20,20 +20,17 @@ export default {
     }
   },
 
-
   components: {
     ButtonControlSwitch,
     FiltersItem
   },
 
   methods: {
-    handleFilterItemClick (event, canAdd) {
+    handleFilterItemClick(event, canAdd) {
       const selection = event.target.innerText
       this.$emit('custom-change', selection, canAdd)
     }
-  },
-
-
+  }
 }
 </script>
 
@@ -47,10 +44,16 @@ export default {
 
     <div class="search-filter-item__filters">
       <filters-item filter-item-name="Abarth" :handleClickFn="handleFilterItemClick"></filters-item>
-      <filters-item filter-item-name="Alfa Romeo" :handleClickFn="handleFilterItemClick"></filters-item>
+      <filters-item
+        filter-item-name="Alfa Romeo"
+        :handleClickFn="handleFilterItemClick"
+      ></filters-item>
       <filters-item filter-item-name="Audi" :handleClickFn="handleFilterItemClick"></filters-item>
       <filters-item filter-item-name="BMW" :handleClickFn="handleFilterItemClick"></filters-item>
-      <filters-item filter-item-name="Citroën" :handleClickFn="handleFilterItemClick"></filters-item>
+      <filters-item
+        filter-item-name="Citroën"
+        :handleClickFn="handleFilterItemClick"
+      ></filters-item>
       <filters-item filter-item-name="BS" />
       <filters-item filter-item-name="Abarth" />
       <filters-item filter-item-name="Alfa Romeo" />

@@ -1,25 +1,25 @@
 <script setup>
-import IconLeft from "./icons/IconLeft.vue"
-import IconRight from "./icons/IconRight.vue"
+import IconLeft from './icons/IconLeft.vue'
+import IconRight from './icons/IconRight.vue'
 </script>
 <template>
-    <div class="pagination">
-      <ul>
-        <li>
-          <IconLeft />
-        </li>
-        <li class="active">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>
-          <IconRight />
-        </li>
-        <li>
-          <IconRight />
-          <IconRight />
-        </li>
-      </ul>
-    </div>
+  <div class="pagination">
+    <ul>
+      <li>
+        <IconLeft />
+      </li>
+      <li class="active">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>
+        <IconRight />
+      </li>
+      <li>
+        <IconRight />
+        <IconRight />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss">
@@ -30,7 +30,7 @@ import IconRight from "./icons/IconRight.vue"
   @media (min-width: 768px) {
     order: 2;
   }
-  
+
   ul {
     @include flex-base;
     justify-content: center;
@@ -43,7 +43,6 @@ import IconRight from "./icons/IconRight.vue"
       @include btn-primary;
       width: 54px;
       height: 30px;
-
     }
     li.active {
       color: $text-white;

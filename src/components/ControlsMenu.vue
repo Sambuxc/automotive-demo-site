@@ -12,16 +12,16 @@
       <span>339 cars</span>
     </p>
 
-    <SortSelect :items="getSelectItems()"/>
+    <SortSelect :items="getSelectItems()" />
   </div>
 </template>
 
 <script setup>
-import SortSelect from "./SortSelect.vue";
+import SortSelect from './SortSelect.vue'
 
 function toggleActive(id) {
   let classList = document.querySelectorAll('.controls-menu__buttons li')[id].classList
-  if( classList.contains('active') ) {
+  if (classList.contains('active')) {
     classList.remove('active')
   } else {
     classList.add('active')

@@ -1,12 +1,10 @@
 <script setup>
-import ListIcon from "./icons/IconPlus.vue";
+import ListIcon from './icons/IconPlus.vue'
 </script>
 <template>
   <footer>
     <div class="footer__first">
-      <img
-        src="../assets/footer_logo.svg"
-        width="142" />
+      <img src="../assets/footer_logo.svg" width="142" />
 
       <div class="row-wrapper">
         <RouterLink to="/call" class="btn-blue">Call Us</RouterLink>
@@ -38,9 +36,7 @@ import ListIcon from "./icons/IconPlus.vue";
         <p>
           <a href="/">Cookies policy</a>
         </p>
-        <p>
-          Powered by <a href="">Nexus Point Apex</a>
-        </p>
+        <p>Powered by <a href="">Nexus Point Apex</a></p>
       </div>
     </div>
   </footer>
@@ -114,7 +110,8 @@ footer {
         width: fit-content;
       }
 
-      p, a {
+      p,
+      a {
         font-size: 12px;
         color: $text-white;
       }

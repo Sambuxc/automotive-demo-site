@@ -1,8 +1,7 @@
 <script>
-import { reactive } from 'vue';
-import SearchFilterItem from './SearchFilterItem.vue';
-import IconFilter from "./icons/IconFilter.vue";
-
+import { reactive } from 'vue'
+import SearchFilterItem from './SearchFilterItem.vue'
+import IconFilter from './icons/IconFilter.vue'
 
 export default {
   name: 'SearchFilterMenu',
@@ -26,7 +25,7 @@ export default {
       const selections = this.state.selections
 
       // Store filter selection
-      if( canAdd ) {
+      if (canAdd) {
         // add item if not stored already
         selections.push(selection)
       } else {
@@ -51,18 +50,17 @@ export default {
       <h2>Brand</h2>
 
       <search-filter-item title="Make" @custom-change="setSelection"></search-filter-item>
-      <search-filter-item title="Model" disabled/>
+      <search-filter-item title="Model" disabled />
 
       <h2>Finance</h2>
-      <search-filter-item title="Deposit"/>
-      <search-filter-item title="Mileage"/>
-      <search-filter-item title="Period"/>
-      <search-filter-item title="Budget"/>
+      <search-filter-item title="Deposit" />
+      <search-filter-item title="Mileage" />
+      <search-filter-item title="Period" />
+      <search-filter-item title="Budget" />
 
       <h2>Budget</h2>
-      <search-filter-item title="Min. Price" disabled/>
-      <search-filter-item title="Max. Price" disabled/>
-
+      <search-filter-item title="Min. Price" disabled />
+      <search-filter-item title="Max. Price" disabled />
     </div>
 
     <div class="search-filter-menu__control">
@@ -84,7 +82,7 @@ export default {
   background-color: white;
   display: flex;
   flex-direction: column;
-  transition: .6s height ease;
+  transition: 0.6s height ease;
   z-index: 100;
 
   @media (min-width: 768px) {
@@ -121,7 +119,7 @@ export default {
       margin: 20px 0;
 
       color: $text-disabled;
-      font-variation-settings: "wght" 900;
+      font-variation-settings: 'wght' 900;
       font-size: 12px;
       line-height: 18px; /* 150% */
       letter-spacing: 1.8px;
@@ -139,7 +137,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 
     &--button {
       @include flex-base;

@@ -1,8 +1,7 @@
 <script setup>
-import IconPlus from "./icons/IconPlus.vue";
-import IconMinus from "./icons/IconMinus.vue";
+import IconPlus from './icons/IconPlus.vue'
+import IconMinus from './icons/IconMinus.vue'
 </script>
-
 
 <template>
   <i class="control-switch">

@@ -1,24 +1,24 @@
 <script setup>
 import '@/assets/main.scss'
-import Header from './components/Header.vue';
-import SearchFilterMenu from './components/SearchFilterMenu.vue';
-import FiltersMenuButton from './components/FiltersMenuButton.vue';
-import Listings from './components/Listings.vue';
-import MainFooter from './components/MainFooter.vue';
+import Header from './components/Header.vue'
+import SearchFilterMenu from './components/SearchFilterMenu.vue'
+import FiltersMenuButton from './components/FiltersMenuButton.vue'
+import Listings from './components/Listings.vue'
+import MainFooter from './components/MainFooter.vue'
 </script>
 
 <template>
-    <Header />
+  <Header />
 
-    <SearchFilterMenu />
+  <SearchFilterMenu />
 
-    <FiltersMenuButton />
+  <FiltersMenuButton />
 
-    <main>
-      <Listings />
-    </main>
+  <main>
+    <Listings />
+  </main>
 
-    <MainFooter />
+  <MainFooter />
 </template>
 
 <style lang="scss">

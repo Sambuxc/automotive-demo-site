@@ -1,5 +1,7 @@
 <template>
-  <RouterLink @mouseover="$emit('handleMouseover', $el)" :to="to" class="nav-item-text">{{ text }}</RouterLink>
+  <RouterLink @mouseover="$emit('handleMouseover', $el)" :to="to" class="nav-item-text">{{
+    text
+  }}</RouterLink>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <script setup>
-import IconFilter from "./icons/IconFilter.vue";
+import IconFilter from './icons/IconFilter.vue'
 </script>
 
 <template>

@@ -1,14 +1,11 @@
 <template>
   <header>
     <div class="flex">
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="@/assets/logo.svg"
-        width="125"
-        height="125" />
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-      <button class="items-center hidden md:flex md:mr-15 appearance-none bg-transparent border-none">
+      <button
+        class="items-center hidden md:flex md:mr-15 appearance-none bg-transparent border-none"
+      >
         <img src="@/assets/star-icon.svg" width="24" height="24" />
         <span class="md:ml-5">{{ starredCount }}</span>
       </button>
@@ -26,21 +23,18 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 // stores
-import { useStarredListingsStore } from '../store/stars';
+import { useStarredListingsStore } from '../store/stars'
 
-import Nav from "./Nav.vue";
-import ControlsMenu from "./ControlsMenu.vue";
+import Nav from './Nav.vue'
+import ControlsMenu from './ControlsMenu.vue'
 
-
-const store = useStarredListingsStore();
-const starredCount = computed(() => store.listings.length);
-
+const store = useStarredListingsStore()
+const starredCount = computed(() => store.listings.length)
 </script>
 
 <style lang="scss">
-
 header {
   @extend .flex;
 
@@ -61,5 +55,4 @@ header {
     align-items: center;
   }
 }
-
 </style>
