@@ -4,66 +4,78 @@ import ListingTileAd from './ListingTileAd.vue'
 import Pagination from './Pagination.vue'
 import SortSelect from './SortSelect.vue'
 import IconDown from './icons/IconDown.vue'
+import mercedesCar from '../assets/mercedes-car.jpg'
 
 function getSelectItems() {
   return ['Lowest price', 'Highest price', 'Most popular', 'Least popular']
+}
+
+// Function to get image URL
+function getImageUrl(imageName) {
+  return new URL(`../assets/${imageName}`, import.meta.url).href;
 }
 </script>
 
 <template>
   <section class="listings">
     <ListingTile
+      id="1233"
       name="2014 (64) Mercedes-Benz"
       desc="CLA 250e Coupe Shooting Break"
       spec="32k miles,Hybrid,Manual,SUV"
       monthly_price="550.90"
       total_price="23,300"
-      img-url="mercedes-car.jpeg"
+      :img-url="getImageUrl('mercedes-car.jpg')"
     />
     <ListingTile
+      id="1234"
       name="2019 (19) Renault Zoe"
       desc="i R135 Rapid Charge ZE50"
       spec="325 miles,EV,Automatic,Hatchback"
       monthly_price="550.90"
       total_price="23,300"
       discount_price="22,300"
-      img-url="renault.jpeg"
+      :img-url="getImageUrl('renault-zoe.jpg')"
     />
     <ListingTile
+      id="1235"
       name="2020 (20) Peugeot 208"
       desc="1.2 PureTech 100 GT-Line"
       spec="Petrol,Automatic,Hatchback"
       monthly_price="550.90"
       total_price="23,300"
       discount_price="22,300"
-      img-url="peugeot.jpeg"
+      :img-url="getImageUrl('peugeot.jpg')"
     />
     <ListingTileAd />
     <ListingTile
+      id="1236"
       name="2014 (64) Mercedes-Benz"
       desc="CLA 250e Coupe Shooting Break"
       spec="32k miles,Hybrid,Manual,SUV"
       monthly_price="550.90"
       total_price="23,300"
-      img-url="mercedes-car.jpeg"
+      :img-url="getImageUrl('mercedes-benz.jpg')"
     />
     <ListingTile
+      id="1237"
       name="2019 (19) Renault Zoe"
       desc="i R135 Rapid Charge ZE50"
       spec="325 miles,EV,Automatic,Hatchback"
       monthly_price="550.90"
       total_price="23,300"
       discount_price="22,300"
-      img-url="renault.jpeg"
+      :img-url="getImageUrl('renault_classic.webp')"
     />
     <ListingTile
+      id="1238"
       name="2020 (20) Peugeot 208"
       desc="1.2 PureTech 100 GT-Line"
       spec="Petrol,Automatic,Hatchback"
       monthly_price="550.90"
       total_price="23,300"
       discount_price="22,300"
-      img-url="peugeot.jpeg"
+      :img-url="getImageUrl('peugeot-classic.jpg')"
     />
   </section>
 

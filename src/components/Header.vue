@@ -1,8 +1,3 @@
-<script setup>
-import Nav from "./Nav.vue";
-import ControlsMenu from "./ControlsMenu.vue";
-</script>
-
 <template>
   <header>
     <div class="flex">
@@ -13,10 +8,10 @@ import ControlsMenu from "./ControlsMenu.vue";
         width="125"
         height="125" />
 
-      <div class="items-center hidden md:flex md:mr-15">
+      <button class="items-center hidden md:flex md:mr-15 appearance-none bg-transparent border-none">
         <img src="@/assets/star-icon.svg" width="24" height="24" />
-        <span class="md:ml-5">0</span>
-      </div>
+        <span class="md:ml-5">{{ starredCount }}</span>
+      </button>
 
       <div class="items-center hidden md:flex">
         <img src="@/assets/time-icon.svg" timeh="24" height="24" />
@@ -26,9 +21,23 @@ import ControlsMenu from "./ControlsMenu.vue";
 
     <Nav />
   </header>
-  
+
   <ControlsMenu />
 </template>
+
+<script setup>
+import { computed } from 'vue';
+// stores
+import { useStarredListingsStore } from '../store/stars';
+
+import Nav from "./Nav.vue";
+import ControlsMenu from "./ControlsMenu.vue";
+
+
+const store = useStarredListingsStore();
+const starredCount = computed(() => store.listings.length);
+
+</script>
 
 <style lang="scss">
 

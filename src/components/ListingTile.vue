@@ -1,18 +1,3 @@
-<script setup>
-import IconStar from './icons/IconStar.vue'
-import ListingLabels from '@/components/ListingLabels.vue'
-
-const props = defineProps([
-  'name',
-  'desc',
-  'spec',
-  'total_price',
-  'discount_price',
-  'monthly_price',
-  'imgUrl'
-])
-</script>
-
 <template>
   <div class="listings__tile">
     <div class="listings__tile--gallery">
@@ -28,7 +13,7 @@ const props = defineProps([
         <h3>
           <span class="text">{{ name }}</span>
           <span class="button__tag">New</span>
-          <IconStar class="star-icon" />
+          <IconStar class="star-icon" @star-clicked="handleStarClick" />
         </h3>
         <p class="listings__tile--details__heading--caption">
           {{ desc }}
@@ -41,9 +26,7 @@ const props = defineProps([
         </div>
         <div class="listings__tile--details__spec--price">
           <p class="monthly-price">
-            <span
-              ><strong>£{{ monthly_price }}</strong></span
-            >
+            <span><strong>£{{ monthly_price }}</strong></span>
             <span class="unit">/mo (PCP)</span>
           </p>
           <p v-if="discount_price" class="total-price">
@@ -59,6 +42,33 @@ const props = defineProps([
     </div>
   </div>
 </template>
+
+<script setup>
+// stores
+import { useStarredListingsStore } from '../store/stars';
+
+// components
+import IconStar from './icons/IconStar.vue'
+import ListingLabels from '../components/ListingLabels.vue'
+
+const store = useStarredListingsStore();
+
+const props = defineProps([
+  'id',
+  'name',
+  'desc',
+  'spec',
+  'total_price',
+  'discount_price',
+  'monthly_price',
+  'imgUrl'
+])
+
+const handleStarClick = () => {
+  // toggle listing in store
+  store.add(props)
+}
+</script>
 
 <style lang="scss">
 .listings__tile {
@@ -139,7 +149,7 @@ const props = defineProps([
     align-items: flex-end;
     padding-top: 6px;
 
-    > div {
+    >div {
       width: 50%;
       line-height: 18px;
 
@@ -229,20 +239,6 @@ const props = defineProps([
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
-    }
-  }
-  .star-icon {
-    cursor: pointer;
-
-    &:hover path {
-      fill: $brand-primary;
-      stroke: none;
-    }
-
-    path {
-      stroke: $framework-dark-2;
-      stroke-width: 1.2px;
-      fill: none;
     }
   }
 }
