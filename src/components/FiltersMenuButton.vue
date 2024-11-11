@@ -1,10 +1,19 @@
 <script setup>
-import IconFilter from './icons/IconFilter.vue'
+import IconFilter from "./icons/IconFilter.vue";
+
+const emit = defineEmits(['openMenu'])
+
+const handleClick = () => {
+  emit('openMenu')
+}
 </script>
 
 <template>
   <div class="filters-menu__control">
-    <div class="filters-menu__control--button">
+    <div 
+      class="filters-menu__control--button"
+      @click="handleClick"
+    >
       <IconFilter />
       <p>Filters</p>
     </div>
@@ -36,6 +45,7 @@ import IconFilter from './icons/IconFilter.vue'
     padding: 12px 25px;
     height: 50px;
     width: fit-content;
+    cursor: pointer;
 
     border-radius: 16px;
     border: $framework-borders;

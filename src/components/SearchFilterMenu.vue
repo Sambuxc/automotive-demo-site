@@ -1,56 +1,84 @@
 <script>
-import { reactive } from 'vue'
-import SearchFilterItem from './SearchFilterItem.vue'
+import { defineComponent, ref, watch } from 'vue'
 import IconFilter from './icons/IconFilter.vue'
+import SearchFilterItem from './SearchFilterItem.vue'
 
-export default {
-  name: 'SearchFilterMenu',
-
-  setup() {
-    const state = reactive({
-      selections: []
-    })
-    return {
-      state
+export default defineComponent({
+  components: {
+    IconFilter,
+    SearchFilterItem
+  },
+  props: {
+    isOpen: {
+      type: Boolean,
+      required: true
     }
   },
+  emits: ['update:isOpen'],
 
-  components: {
-    SearchFilterItem,
-    IconFilter
-  },
+  setup(props, { emit }) {
+    const selectedFilters = ref([])
+    
+    const toggleMenu = () => {
+      emit('update:isOpen', !props.isOpen)
+      document.body.style.overflow = !props.isOpen ? 'hidden' : ''
+    }
 
-  methods: {
-    setSelection(selection, canAdd) {
-      const selections = this.state.selections
+    // Watch for external changes to isOpen
+    watch(() => props.isOpen, (newValue) => {
+      document.body.style.overflow = newValue ? 'hidden' : ''
+    })
 
-      // Store filter selection
-      if (canAdd) {
-        // add item if not stored already
-        selections.push(selection)
-      } else {
-        selections.splice(selections.indexOf(selection), 1)
-      }
+    const resetFilters = () => {
+      selectedFilters.value = []
+    }
 
-      console.log(selections)
+    const setSelection = (selection) => {
+      selectedFilters.value.push(selection)
+    }
+
+    return {
+      selectedFilters,
+      toggleMenu,
+      resetFilters,
+      setSelection
     }
   }
-}
+})
 </script>
 
 <template>
-  <div class="search-filter-menu">
+  <div 
+    class="search-filter-menu" 
+    :class="{ open: isOpen }"
+  >
     <div class="search-filter-menu__header">
       <h2>Search filters</h2>
-      <button class="search-filter-menu__header--reset btn-red">Reset</button>
-      <button class="search-filter-menu__header--cancel btn-base">Cancel</button>
+      <button 
+        class="search-filter-menu__header--reset btn-red"
+        @click="resetFilters"
+      >
+        Reset
+      </button>
+      <button 
+        class="search-filter-menu__header--cancel btn-base"
+        @click="toggleMenu"
+      >
+        Cancel
+      </button>
     </div>
 
     <div class="search-filter-menu__body">
       <h2>Brand</h2>
 
-      <search-filter-item title="Make" @custom-change="setSelection"></search-filter-item>
-      <search-filter-item title="Model" disabled />
+      <search-filter-item 
+        title="Make" 
+        @custom-change="setSelection"
+      />
+      <search-filter-item 
+        title="Model" 
+        :disabled="true"
+      />
 
       <h2>Finance</h2>
       <search-filter-item title="Deposit" />
@@ -59,14 +87,23 @@ export default {
       <search-filter-item title="Budget" />
 
       <h2>Budget</h2>
-      <search-filter-item title="Min. Price" disabled />
-      <search-filter-item title="Max. Price" disabled />
+      <search-filter-item 
+        title="Min. Price" 
+        :disabled="true"
+      />
+      <search-filter-item 
+        title="Max. Price" 
+        :disabled="true"
+      />
     </div>
 
     <div class="search-filter-menu__control">
-      <div class="search-filter-menu__control--button">
+      <div 
+        class="search-filter-menu__control--button"
+        @click="toggleMenu"
+      >
         <IconFilter />
-        <p>Update (399)</p>
+        <p>Update ({{ selectedFilters.length }})</p>
       </div>
     </div>
   </div>
