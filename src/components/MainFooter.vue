@@ -25,18 +25,17 @@ import ListIcon from './icons/IconPlus.vue'
 
       <div class="footer__second--links">
         <p>
-          <a href="/">Terms and conditions</a>
+          <a href="#terms">Terms and conditions</a>
         </p>
         <p>
-          <a href="/">Privacy policy</a>
+          <a href="#privacy">Privacy policy</a>
         </p>
         <p>
-          <a href="/">Site map</a>
+          <a href="#sitemap">Site map</a>
         </p>
         <p>
-          <a href="/">Cookies policy</a>
+          <a href="#cookies">Cookies policy</a>
         </p>
-        <p>Powered by <a href="">Nexus Point Apex</a></p>
       </div>
     </div>
   </footer>
